@@ -1,0 +1,8 @@
+torch==2.2.0 
+--index-url https://download.pytorch.org/whl/cu121
+tqdm
+ncps
+pynvml
+ncps
+mne
+torch-hd # comment this then run pip install torch-hd if error happen
