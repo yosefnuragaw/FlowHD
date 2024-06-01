@@ -21,7 +21,7 @@ def remove_inf(tensor, replace_value=1e-6):
     return tensor
 
 def prep_x(x_i):
-    MIN = 78 #By smallers observed sequence (CHANGE ACCORDING DATA)
+    MIN = 78 #By smallest observed sequence (CHANGE ACCORDING DATA)
     INDEX = 'FIRST'
 
     arr = "empty"
