@@ -3,10 +3,10 @@ import random
 import warnings
 import torch
 import numpy as np
-from src.utils.func import prep_dataset, get_size, KFoldCV_HD
+from src.utils.func import prep_dataset,remove_inf, get_size, KFoldCV_HD
 import torchprofile
 from src.models.FlowHD import FLowHD
-
+from torch.utils.data import TensorDataset, DataLoader
 # Set device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"Using {device} device")
@@ -50,6 +50,6 @@ print(f"GFLOPs: {gflops}")
 
 # Run K-Fold Cross-Validation
 warnings.filterwarnings("ignore")
-KFoldCV_HD(model, cvc_dataloader, k_folds=10, epochs=20, batch_size=16, patience=5, device=device)
+KFoldCV_HD(model, cvc_dataloader, num_folds=10, num_epochs=20, batch_size=16, wait=5, device=device)
 torch.cuda.empty_cache()
 warnings.filterwarnings("always")

@@ -141,3 +141,5 @@ p/
 
 # Ignore example .wav files (and in the future, predictions)
 .wav
+
+*.pth

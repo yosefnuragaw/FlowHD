@@ -8,7 +8,8 @@ from pynvml import *
 from tqdm import tqdm
 from torch import Tensor, LongTensor
 from sklearn.model_selection import StratifiedKFold
-from torch.utils.data import TensorDataset, DataLoader
+from torch.utils.data import TensorDataset
+from torch.utils.data import DataLoader as TensorDataLoader
 import numpy as np
 
 DataLoader = Iterable[Tuple[Tensor, LongTensor]]
@@ -125,4 +126,4 @@ def prep_dataset(dir):
 
 
     filtered_dataset = TensorDataset(torch.cat(c_x), torch.cat(c_y))
-    return DataLoader(filtered_dataset, batch_size=1)
+    return TensorDataLoader(filtered_dataset, batch_size=1)
